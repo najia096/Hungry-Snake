@@ -1,6 +1,6 @@
 # Hungry Snake
 
-![Hungry Snake Screenshot](assets/hungry-snake.png)
+![Hungry Snake Screenshot](assets/hungry-snake.jpg)
 
 ## Description
 
