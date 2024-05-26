@@ -23,17 +23,11 @@ Hungry Snake is a classic snake game built using Python and Pygame library. Cont
 5. Eat apples to grow longer and avoid collisions with walls and yourself.
 6. Press "P" to pause the game.
 
-## Screenshots
-
-![Screenshot 1](assets/screenshot1.png)
-![Screenshot 2](assets/screenshot2.png)
 
 ## Dependencies
 
 - Python 3.x
 - Pygame library
 
-## License
 
-This project is licensed under the [MIT License](LICENSE).
 
