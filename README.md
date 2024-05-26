@@ -9,7 +9,6 @@ Hungry Snake is a classic snake game built using Python and Pygame library. Cont
 ## Features
 
 - Simple and intuitive controls.
-- Realistic collision effects.
 - Pause function for convenience.
 - Increasing difficulty as the snake grows longer.
 - High score tracking.
