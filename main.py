@@ -1,5 +1,5 @@
 import pygame
-import sys 
+import sys
 import random
 
 pygame.init()
@@ -8,6 +8,7 @@ SW, SH = 800, 800
 
 BLOCK_SIZE = 40
 FONT = pygame.font.Font("font.ttf", BLOCK_SIZE*2)
+PAUSE_FONT = pygame.font.Font("font.ttf", BLOCK_SIZE)  # Smaller font for the pause message
 
 screen = pygame.display.set_mode((800, 800))
 pygame.display.set_caption("Snake!")
@@ -63,6 +64,8 @@ def drawGrid():
 snake = Snake()
 apple = Apple()
 
+paused = False  
+
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -81,8 +84,11 @@ while True:
             elif event.key == pygame.K_LEFT and snake.xdir == 0:
                 snake.ydir = 0
                 snake.xdir = -1
+            elif event.key == pygame.K_p:
+                paused = not paused  # Toggle the paused state
 
-    snake.update()
+    if not paused:
+        snake.update()
     
     screen.fill('black')
     drawGrid()
@@ -103,6 +109,12 @@ while True:
     if snake.head.x == apple.x and snake.head.y == apple.y:
         snake.body.append(pygame.Rect(snake.body[-1].x, snake.body[-1].y, BLOCK_SIZE, BLOCK_SIZE))
         apple = Apple()
+
+    # Display paused message
+    if paused:
+        pause_message = PAUSE_FONT.render("Game is paused. Press 'P' to resume playing.", True, "orange")
+        pause_rect = pause_message.get_rect(center=(SW / 2, SH / 2))
+        screen.blit(pause_message, pause_rect)
 
     pygame.display.update()
     clock.tick(5)
